@@ -1,4 +1,4 @@
-# Shoot or Keep the Ball? A Held-Out Causal Audit of Shot Selection with Public Data
+# Shoot or Keep the Ball? A Held-Out Causal Audit of Shot Selection
 
 Code and results for our MIT Sloan Sports Analytics Conference 2027 research paper
 submission. Abstract: [`abstract/abstract.md`](abstract/abstract.md).
