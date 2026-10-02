@@ -1,0 +1,9 @@
+,value,threshold
+n_shots,1228.0,
+n_controls,20532.0,
+control_ess,1005.6084351177163,
+key_max_smd,0.07461338097184278,0.1
+other_max_smd,0.0937678873888179,0.15
+max_weight_share,0.005029184061236225,0.01
+max_match_weight_share,0.037436874787766916,0.1
+shot_retention,0.9489953632148377,

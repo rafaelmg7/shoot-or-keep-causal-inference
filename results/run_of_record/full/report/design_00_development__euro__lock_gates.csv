@@ -1,0 +1,6 @@
+,passed
+design_sanity,True
+development_diagnostics,True
+leakage_tests,True
+timing_audit,True
+weighted_validation,True

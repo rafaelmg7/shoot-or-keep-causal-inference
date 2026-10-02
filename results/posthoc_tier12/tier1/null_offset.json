@@ -1,0 +1,20 @@
+{
+  "corr_difference_vs_plugin": 0.18947616716667426,
+  "corr_fitted_vs_plugin": -0.09233389713434668,
+  "dummy_y": {
+    "mcse": 0.0007917426684137525,
+    "mean_att": 0.0010804908167593769
+  },
+  "mean_residual_plugin": 0.0021108828920941964,
+  "mechanism": "Within-match permutation keeps each match shot share; fitted propensity/outcome models have no match term, so match-level outcome differences can enter the estimate. Plug-in uses the original baseline m0 and support (approximation; not the refitted nuisances).",
+  "paired": {
+    "mcse": 3.129730454710423e-05,
+    "mean_difference": 0.0018729368803116426,
+    "mean_fitted": 0.0021774266338199823,
+    "mean_known": 0.00030448975350834016,
+    "n": 50,
+    "sd": 0.0002213053627811797,
+    "t": 59.84339250342679
+  },
+  "replicates": 50
+}

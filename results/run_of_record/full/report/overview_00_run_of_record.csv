@@ -1,0 +1,11 @@
+,value
+run_id,public-submission-full-gpu-20260930
+phase,confirmation
+phase_status,completed
+claim_status,completed
+units,signed first-goal reward per supported decision (x100 per 100 supported decisions)
+design_lock,frozen
+confirmation_allowed,True
+frozen_at,2026-09-30T21:51:38.024848+00:00
+core_source_hash,0959a70c7605b8fe
+provenance_hash,10bbd0ddceabfe8c

@@ -1,0 +1,50 @@
+{
+  "bootstrap": {
+    "diagnostic_poor": 489,
+    "percentile_interval": [
+      0.0029237139443743262,
+      0.05614862632785395
+    ],
+    "successful": 500
+  },
+  "checks": [
+    {
+      "check": "analyses",
+      "meaning": "All pre-declared robustness analyses ran without computational failure (not that they passed diagnostics)",
+      "original_flag": true
+    },
+    {
+      "check": "bootstrap",
+      "meaning": "Requested fixed-design refits completed (diagnostic-poor draws retained)",
+      "original_flag": true
+    },
+    {
+      "check": "inference_agreement",
+      "meaning": "Score interval and bootstrap percentile interval agreed under the pre-declared rule",
+      "original_flag": true
+    },
+    {
+      "check": "nulls",
+      "meaning": "Software null experiments ran; fitted mean within tolerance (software check, not identification evidence)",
+      "original_flag": true
+    },
+    {
+      "check": "precision",
+      "meaning": "Monte Carlo precision rule for bootstrap endpoints met",
+      "original_flag": true
+    },
+    {
+      "check": "simulations",
+      "meaning": "Every simulation scenario produced successful replicates (no coverage criterion)",
+      "original_flag": true
+    },
+    {
+      "check": "support",
+      "meaning": "Support, balance and concentration gates passed on the WC supported sample",
+      "original_flag": true
+    }
+  ],
+  "original_status": "completed",
+  "primary_status_note": "confirmation/primary_status.json in the original run is a stale provisional record superseded by submission_results.json (not edited).",
+  "relabelled_status": "all pre-declared computations completed; this is not a validation of identification"
+}

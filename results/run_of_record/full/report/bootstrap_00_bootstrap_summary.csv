@@ -1,0 +1,15 @@
+,value
+requested draws,200
+successful draws,500
+attempted,500
+failed,0
+precision extension executed,True
+maximum successes,500
+mean,0.031688004273432
+SD,0.013419570494541757
+percentile 95% CI,"[0.0029, 0.0561]"
+"endpoint MCSE (lower, upper)","[0.0021, 0.0018]"
+precision passed,True
+diagnostic-poor draws,489
+bootstrap SD / score SE,1.1146036628963285
+agreement rule,0.667<=bootstrap SD/score SE<=1.5

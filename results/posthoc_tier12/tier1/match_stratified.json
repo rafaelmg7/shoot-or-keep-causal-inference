@@ -1,0 +1,14 @@
+{
+  "att": 0.030679999981796185,
+  "clusters": 64,
+  "df": 63,
+  "dropped_treated": 0,
+  "interval": [
+    0.00719961773288114,
+    0.054160382230711235
+  ],
+  "label": "exploratory saved-score sensitivity motivated by the null offset diagnosis; not prespecified",
+  "method": "within-match Hajek reweighting of saved nuisances (exploratory, not prespecified)",
+  "n_shots_used": 1228,
+  "se": 0.01174994038768612
+}

@@ -1,0 +1,10 @@
+,value
+ATT,0.03077380943538837
+ATT per 100 supported decisions,3.077380943538837
+match-cluster score SE,0.012039768880420356
+degrees of freedom,63
+score 95% CI,"[0.0067, 0.0548]"
+bootstrap percentile 95% CI,"[0.0029, 0.0561]"
+Hajek AIPW ATT,0.03077981420559136
+supported shots,1228
+matches,64

@@ -1,0 +1,7 @@
+{
+  "design_sanity": true,
+  "development_diagnostics": true,
+  "leakage_tests": true,
+  "timing_audit": true,
+  "weighted_validation": true
+}

@@ -1,0 +1,7 @@
+subgroup,boundary,n_shots,sufficient,att,marginal_95,simultaneous_95
+distance_low,18.0,743,False,0.05940488900045476,"[0.0216, 0.0972]",—
+distance_high,18.0,485,False,-0.01308782379521849,"[-0.0313, 0.0051]",—
+angle_low,30.0,896,True,0.015580618968386202,"[-0.0021, 0.0332]","[-0.0015, 0.0327]"
+angle_high,30.0,332,False,0.0717771186475388,"[-0.0050, 0.1485]",—
+nearest_defender_low,1.5,440,False,0.038353430102659146,"[-0.0020, 0.0787]",—
+nearest_defender_high,1.5,788,False,0.02654153393589708,"[-0.0055, 0.0585]",—

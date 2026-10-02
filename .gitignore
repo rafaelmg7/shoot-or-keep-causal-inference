@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+# StatsBomb raw data and derived row-level tables must not be committed
+data/public_statsbomb_causal/
+*.parquet
+*.joblib

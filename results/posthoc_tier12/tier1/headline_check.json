@@ -1,0 +1,10 @@
+{
+  "att_abs_diff": 6.938893903907228e-18,
+  "clusters": 64,
+  "passed": true,
+  "recomputed_att": 0.030773809435388363,
+  "recomputed_se": 0.012039768880420356,
+  "saved_att": 0.03077380943538837,
+  "saved_se": 0.012039768880420356,
+  "se_abs_diff": 0.0
+}

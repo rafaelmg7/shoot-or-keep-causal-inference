@@ -1,0 +1,12 @@
+,value
+model e,"{""device"": ""cuda"", ""iterations"": 100, ""kind"": ""xgb"", ""leaves"": 7}"
+model m0,"{""alpha"": 10, ""kind"": ""ridge""}"
+model m1,"{""iterations"": 100, ""kind"": ""hgb"", ""leaves"": 7}"
+propensity selection rule,lowest grouped log-loss; submission+cuda: CUDA candidate within one SE preferred
+outer folds,5
+primary horizon,"""Y15"""
+backend,"{""candidate_device"": ""cuda"", ""implementation"": ""xgb"", ""selected_propensity"": ""cuda"", ""threads"": 1}"
+primary inference,conditional approximate match-cluster t score CI
+subgroup strata,"[[""distance"", 18], [""angle"", 30], [""nearest_defender"", 1.5]]"
+profile,submission
+frozen at,2026-09-30T21:51:38.024848+00:00

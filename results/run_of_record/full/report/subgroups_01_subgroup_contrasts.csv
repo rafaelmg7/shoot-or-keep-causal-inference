@@ -1,0 +1,4 @@
+,contrast,estimate,simultaneous_interval,sufficient
+0,distance_low-distance_high,,,False
+1,angle_low-angle_high,,,False
+2,nearest_defender_low-nearest_defender_high,,,False

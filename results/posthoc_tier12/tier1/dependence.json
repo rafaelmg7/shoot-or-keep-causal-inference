@@ -1,0 +1,88 @@
+{
+  "note": "All intervals treat fitted nuisances as fixed (as the primary score CI).",
+  "nuisance_fixed": true,
+  "rows": [
+    {
+      "att": 0.030773809435388363,
+      "cluster": "original_match_id",
+      "clustering": "match",
+      "clusters": 64,
+      "critical": 1.998340542520741,
+      "df": 63,
+      "interval": [
+        0.006714251159064814,
+        0.05483336771171191
+      ],
+      "pvalue_zero": 0.013012151479585383,
+      "se": 0.012039768880420356,
+      "wcb_interval": [
+        0.007203024391097549,
+        0.05456005842252254
+      ],
+      "wcb_open_ended": false,
+      "wcb_pvalue_zero": 0.010401040104010401
+    },
+    {
+      "att": 0.030773809435388363,
+      "cluster": "team_id",
+      "clustering": "team",
+      "clusters": 32,
+      "critical": 2.0395134463964077,
+      "df": 31,
+      "interval": [
+        0.004132716587972367,
+        0.05741490228280436
+      ],
+      "pvalue_zero": 0.024981492949136836,
+      "se": 0.01306247472625779,
+      "wcb_interval": [
+        0.0042190472367103285,
+        0.05759802657188896
+      ],
+      "wcb_open_ended": false,
+      "wcb_pvalue_zero": 0.0232023202320232
+    },
+    {
+      "att": 0.030773809435388363,
+      "cluster": "opponent_id",
+      "clustering": "opponent",
+      "clusters": 32,
+      "critical": 2.0395134463964077,
+      "df": 31,
+      "interval": [
+        -0.002783998340239298,
+        0.06433161721101602
+      ],
+      "pvalue_zero": 0.0709087720049742,
+      "se": 0.01645383012057143,
+      "wcb_interval": [
+        -0.001991146761057488,
+        0.06335196384493444
+      ],
+      "wcb_open_ended": false,
+      "wcb_pvalue_zero": 0.06820682068206821
+    },
+    {
+      "att": 0.030773809435388363,
+      "clustering": "two_way_team_opponent_cgm",
+      "clusters": 32,
+      "components": {
+        "first": 32,
+        "intersection": 126,
+        "second": 32
+      },
+      "critical": 2.0395134463964077,
+      "df": 31,
+      "fallback_used": false,
+      "interval": [
+        -0.0021771769897438384,
+        0.06372479586052057
+      ],
+      "pvalue_zero": 0.06612641661867104,
+      "se": 0.016156297710786322,
+      "variance_raw": 0.0002610259557195594
+    }
+  ],
+  "wcb_draws": 9999,
+  "wcb_seed": 20261001
+}

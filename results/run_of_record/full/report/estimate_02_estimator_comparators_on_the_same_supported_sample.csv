@@ -1,0 +1,8 @@
+,estimator,att,n_shots,n_controls,same_treated_ids,inference
+0,raw_difference,0.08440594200774068,1228,20532,True,cluster_inference
+1,outcome_regression_ATT,0.03414450060262372,1228,20532,True,cluster_inference
+2,IPW_Hajek_ATT,0.03061885249754301,1228,20532,True,cluster_inference
+3,AIPW_count_ATT,0.03077380943538837,1228,20532,True,cluster_inference
+4,AIPW_Hajek_ATT,0.03077981420559136,1228,20532,True,cluster_inference
+5,NN_matching_ATT,0.047231270358306196,1228,20532,True,descriptive_only
+6,NN_spatial_ATT,0.030401737242128135,1228,20532,True,descriptive_only

@@ -1,0 +1,98 @@
+% SSAC27 Research Paper Competition: abstract submission.
+% SSAC rules: fewer than 500 words including title and body; sections Introduction,
+% Methods, Results, Conclusion; up to two tables or figures combined.
+% No official abstract template is published, so this uses a plain article layout.
+% Upload fig1_effect_by_distance.png next to this file on Overleaf. Compile with pdfLaTeX.
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.2ex}{0.5ex}
+\setlength{\parskip}{0.6ex}
+\setlength{\parindent}{0pt}
+\pagestyle{plain}
+
+% SSAC: "Final reviews will occur without knowledge of the names of the authors."
+% Set \blindtrue to hide the author block for an anonymised PDF.
+\newif\ifblind
+\blindfalse
+
+\title{\vspace{-1.5cm}\textbf{Shoot or Keep the Ball? A Held-Out Causal Audit of Shot Selection with Public Data}}
+\ifblind
+  \author{}
+\else
+  \author{%
+    Author One \\ {\small Institution} \\ {\small\texttt{email}} \and
+    Author Two \\ {\small Institution} \\ {\small\texttt{email}}%
+  }
+\fi
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.2cm}
+
+\section*{Introduction}
+Expected goals measures how good a chance was, not whether shooting beat keeping the ball.
+Comparing the two is hard because players shoot when chances already look good. Recent
+tracking-data models recommend when to shoot, without causal claims (Verronneau et al., MLSA
+2026). We ask: when players shot, did it pay off compared with what they would typically
+have done instead?
+
+
+\section*{Methods}
+We use StatsBomb open event data with 360 freeze-frames (player positions). Decisions are
+live-play actions in the attacking third with the ball's 3~m surroundings fully visible.
+Each shot is compared with keeping the ball as players in the same situation actually did:
+the observed mix of passes, carries and dribbles, then natural play, later shots included.
+We compare only where both choices were realistic (94.9\% of eligible shots). The outcome is
+the first goal within 15 seconds ($+$1 scored, $-$1 conceded, 0 otherwise). A doubly robust
+estimator, cross-fitted by match, adjusts for geometry, pressure, score, time and recent
+actions. The analysis was fixed on Euro 2020 and 2024 (102 matches), then run once on World
+Cup 2022 (64 matches).
+
+
+\section*{Results}
+Adjustment matters: shots and other decisions start 2.2 standard deviations apart in
+distance to goal; after weighting, every feature in the adjustment set is within 0.08. In
+the World Cup (1,228 shots; 20,532 other decisions), the net scoring rate within 15 seconds
+was 10.7\% after shots, against an estimated 7.7\% had the same players kept the ball: a
+gain of 3.1 percentage points (95\% CI 0.7 to 5.5, clustered by match), well under half the
+raw gap of 8.4 (Figure~\ref{fig:effect}a).
+
+The result does not rest on one estimator or one match: other estimators give 3.0 to 4.7,
+and dropping any one match or team gives 2.3 to 4.1. With shots randomly reassigned, the
+pipeline finds no effect; on 400 simulated datasets, its intervals covered the true effect
+93\% of the time.
+
+Four results limit generalisation (Figure~\ref{fig:effect}b). The Euro estimate points the
+same way but is smaller and uncertain: 1.8 ($-$0.2 to 3.8). Clustering by opponent, unlike
+by team, widens the interval to include zero ($-$0.3 to 6.4), as does a stricter 5~m
+visibility rule (2.3; $-$0.5 to 5.0). Hidden factors shifting the odds of shooting 1.35-fold
+would bring the estimated lower bound to zero.
+
+
+\section*{Conclusion}
+Under the stated assumptions, the shots players chose in a held-out tournament produced a
+modest short-term gain over keeping the ball, stable across estimators, matches and teams.
+Its main uncertainties are quantified, not assumed away. The contribution is a reproducible
+audit of shot selection, rerunnable on any StatsBomb 360 competition: what shooting added,
+and how far that can be trusted.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{fig5_estimate_and_uncertainty.png}
+  \caption{(a) Raw gap and adjusted effect of shooting vs keeping the ball, World Cup.
+  (b) The adjusted effect under other uncertainty choices and samples.}
+  \label{fig:effect}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,18 @@
+,decisions,share of candidates
+outside_region,75482,0.605629282539275
+outside_region|missing_360,9370,0.07518012741306546
+outside_region|incomplete_local_visibility,5367,0.04306208578718488
+missing_360,2843,0.022810789993099795
+direct_restart|outside_region|missing_360,2665,0.02138260827703516
+incomplete_local_visibility,2616,0.02098945713047804
+direct_restart|outside_region,968,0.007766741017699825
+direct_restart|outside_region|incomplete_local_visibility,844,0.006771827912126707
+direct_restart|missing_360,810,0.0064990291573727875
+direct_restart|incomplete_local_visibility,803,0.0064428647078646276
+actor_coordinate_mismatch|incomplete_local_visibility,340,0.002727987547539195
+outside_region|actor_coordinate_mismatch|incomplete_local_visibility,293,0.0023508833865558353
+direct_restart,244,0.0019577322399987164
+outside_region|actor_coordinate_mismatch,96,0.0007702553075404785
+shootout_or_unknown_period|direct_restart|incomplete_local_visibility|unknown_outcome,34,0.00027279875475391945
+actor_coordinate_mismatch,11,8.825842065567983e-05
+shootout_or_unknown_period|direct_restart|missing_360|unknown_outcome,7,5.6164449508159895e-05

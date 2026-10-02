@@ -1,0 +1,21 @@
+,decisions,share of candidates
+outside_region,117415,0.5853744871149311
+outside_region|missing_360,14871,0.07413962439114373
+outside_region|incomplete_local_visibility,11189,0.055782950528714084
+missing_360,4732,0.02359146678897802
+incomplete_local_visibility,4680,0.023332219901187053
+direct_restart|outside_region|missing_360,3734,0.01861592075022061
+direct_restart|outside_region,1552,0.007737522497145792
+direct_restart|outside_region|incomplete_local_visibility,1275,0.006356534267951601
+direct_restart|incomplete_local_visibility,1274,0.006351548750878697
+direct_restart|missing_360,1135,0.00565856187774515
+outside_region|actor_coordinate_mismatch|incomplete_local_visibility,564,0.002811831629117414
+actor_coordinate_mismatch|incomplete_local_visibility,549,0.0027370488730238656
+direct_restart,338,0.001685104770641287
+outside_region|actor_coordinate_mismatch,147,0.0007328710097167728
+shootout_or_unknown_period|direct_restart|missing_360|unknown_outcome,44,0.0002193627512077415
+actor_coordinate_mismatch,18,8.973930731225789e-05
+shootout_or_unknown_period|direct_restart|incomplete_local_visibility|unknown_outcome,16,7.976827316645145e-05
+outside_region|invalid_actor|incomplete_local_visibility,2,9.971034145806432e-06
+shootout_or_unknown_period|direct_restart|unknown_outcome,2,9.971034145806432e-06
+outside_region|invalid_actor,1,4.985517072903216e-06

@@ -1,0 +1,14 @@
+{
+  "canonical_key": "12827f3f63712e379ca49a1f1931c5cee2ab542f6e7d57b6bc712a28dc2d422c",
+  "key": "f03871fa0aa6fe583a00b5ecdd5d4c987d985f82fc9e3fda4973ba4248b6cd4a",
+  "rows": 21841,
+  "summary": {
+    "(0, 'linked')": 17782,
+    "(0, 'no_incoming_pass')": 2059,
+    "(0, 'unresolved')": 706,
+    "(1, 'linked')": 991,
+    "(1, 'no_incoming_pass')": 190,
+    "(1, 'unresolved')": 113
+  },
+  "table": "confirmation-ctx-v1-f03871fa0aa6fe58.parquet"
+}

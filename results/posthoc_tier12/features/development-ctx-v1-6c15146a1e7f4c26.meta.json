@@ -1,0 +1,40 @@
+{
+  "canonical_key": "b1e7c846453dfec59b9d61ea37c538e1476926016ba895877562321e3d028d6b",
+  "code_sha256": "dc69d2a5757b8f20202241e205d3b9d8d4173da25761a289dd4d066d2078e626",
+  "group_a": [
+    "ctx_possession_age_s",
+    "ctx_possession_passes",
+    "ctx_possession_start_x",
+    "ctx_restart_corner",
+    "ctx_restart_free_kick",
+    "ctx_restart_throw_in",
+    "ctx_restart_other",
+    "ctx_set_piece_within_20s",
+    "ctx_in_linked",
+    "ctx_in_unresolved",
+    "ctx_in_high",
+    "ctx_in_low",
+    "ctx_in_cross",
+    "ctx_in_through",
+    "ctx_in_cutback",
+    "ctx_in_length_m",
+    "ctx_in_from_wide",
+    "ctx_actor_on_ball_s",
+    "ctx_actor_prior_actions"
+  ],
+  "group_b": [
+    "geo_triangle_defenders",
+    "geo_keeper_goal_dist",
+    "geo_keeper_line_offset"
+  ],
+  "key": "6c15146a1e7f4c26c6dd2904e041b1e65a99a43f9ca6c0cfe1d42d8c5e56628f",
+  "matches": 102,
+  "observation": [
+    "geo_triangle_visible",
+    "geo_keeper_observed"
+  ],
+  "raw_fingerprint": "2d52a17650068056622c4af78b04c1f59ab6d78ba3b17798fb722b5d433787da",
+  "rows": 37043,
+  "sha256": "1a278386d44f43761f53963a772bb1ceaf916aebab2899409e8a8704840a7ed5",
+  "version": "ctx-v1"
+}

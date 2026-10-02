@@ -1,0 +1,3 @@
+,requested,successful,failed,mean_att,mean_att_mcse,reject_zero_rate,reject_zero_mc_interval
+independent_dummy_y,50,50,0,0.0010804908167593769,0.0007917426684137525,0.04,"[0.0110, 0.1346]"
+within_match_treatment,50,50,0,0.0021774266338199823,0.0006949491826719002,0.02,"[0.0035, 0.1050]"

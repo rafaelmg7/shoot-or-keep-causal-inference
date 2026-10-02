@@ -1,0 +1,14 @@
+{
+  "canonical_key": "b1e7c846453dfec59b9d61ea37c538e1476926016ba895877562321e3d028d6b",
+  "key": "6c15146a1e7f4c26c6dd2904e041b1e65a99a43f9ca6c0cfe1d42d8c5e56628f",
+  "rows": 37043,
+  "summary": {
+    "(0, 'linked')": 30736,
+    "(0, 'no_incoming_pass')": 2855,
+    "(0, 'unresolved')": 1135,
+    "(1, 'linked')": 1843,
+    "(1, 'no_incoming_pass')": 291,
+    "(1, 'unresolved')": 183
+  },
+  "table": "development-ctx-v1-6c15146a1e7f4c26.parquet"
+}
