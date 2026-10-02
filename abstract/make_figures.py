@@ -25,22 +25,22 @@ for i, _ in enumerate(rows):
                                 (0.14, wc, ORANGE, "World Cup 2022 (held out)")]:
         est, lo, hi, n = data[i]
         y = i + off
-        ax.plot([lo, hi], [y, y], color=col, lw=2, solid_capstyle="round", zorder=2)
-        ax.scatter([est], [y], s=46, color=col, edgecolor=SURF, linewidth=2, zorder=3,
-                   label=lab if i == 0 else None)
-        ax.text(hi + 0.25, y, f"{est:+.1f}  (n={n:,})", va="center", fontsize=8.5, color=INK2)
+        ax.errorbar([est], [y], xerr=[[est - lo], [hi - est]], fmt="o", ms=6, color=col, mec="white",
+                    mew=1.2, ecolor=col, elinewidth=2, capsize=4, capthick=1.5, zorder=3,
+                    label=lab if i == 0 else None)
+        ax.text(hi + 0.25, y, f"{est:+.1f}  ({lo:+.1f} to {hi:+.1f})", va="center", fontsize=8, color=INK2)
 ax.axvline(0, color=INK2, lw=1, zorder=1)
 ax.set_yticks(range(len(rows)), rows, color=INK)
 ax.invert_yaxis()
-ax.set_xlim(-4.5, 13)
+ax.set_xlim(-4.5, 14.5); ax.set_xticks(range(-4, 15, 2))
 ax.set_xlabel("Effect of shooting (percentage points, 95% CI)")
 ax.grid(axis="x", color=GRID, lw=0.8); ax.set_axisbelow(True)
 for s in ("top", "right", "left"): ax.spines[s].set_visible(False)
 ax.legend(frameon=False, loc="lower right", fontsize=8.5)
-fig.suptitle("Shooting vs keeping the ball: change in net scoring rate, overall and by shot distance", x=0.01, ha="left",
+fig.suptitle("Adjusted effect of shooting vs keeping the ball, overall and by shot distance", x=0.01, ha="left",
              fontsize=11, color=INK)
-fig.text(0.01, 0.015, "Net scoring rate = first goal within 15 s (+1 scored, -1 conceded). "
-         "Intervals clustered by match.", fontsize=7.5, color=INK2, va="bottom")
+fig.text(0.01, 0.015, "Net scoring rate = first goal within 15 s (+1 scored, -1 conceded). Bars: 95% CI, clustered by match. "
+         "Distance groups are prespecified.", fontsize=7.5, color=INK2, va="bottom")
 fig.tight_layout(rect=(0, 0.05, 1, 1)); fig.savefig("fig1_effect_by_distance.png"); plt.close(fig)
 
 # ---- Figure 2 (descriptive): observed 15-s scoring rate of shots vs model-estimated rate had they continued

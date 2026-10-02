@@ -1,99 +1,45 @@
 # Shoot or Keep the Ball? A Held-Out Causal Audit of Shot Selection with Public Data
 
-Code, data manifests and results for our MIT Sloan Sports Analytics Conference 2027
-research paper submission (soccer track). Abstract: [`abstract/abstract.md`](abstract/abstract.md).
+Code and results for our MIT Sloan Sports Analytics Conference 2027 research paper
+submission. Abstract: [`abstract/abstract.md`](abstract/abstract.md).
 
-**Question.** When players shot, did it pay off compared with what they would typically
-have done instead, i.e. keeping the ball through the observed mix of passes, carries and
-dribbles (later shots allowed)? The target is the average effect of shooting on the shots
-taken (ATT), estimated with a match-cross-fitted, doubly robust (AIPW) estimator inside a
-support region learned on development data, using only public StatsBomb/Hudl event and 360 data.
+When players shot, did it pay off compared with keeping the ball the way players in the
+same situation typically did? We estimate the effect of shooting on the shots taken (ATT)
+with a doubly robust estimator, cross-fitted by match, using StatsBomb open event and 360
+data. The outcome is the first goal within 15 seconds (+1 scored, −1 conceded, 0 otherwise).
+The design was fixed on Euro 2020 and 2024 (102 matches) and run once on World Cup 2022
+(64 matches).
 
-**Outcome.** First goal within 15 seconds of the decision: +1 if the acting team scores,
-−1 if it concedes, 0 otherwise. Its mean is a *net scoring rate* (P(score first) −
-P(concede first)); effects are differences in that rate, in percentage points. They are
-not counts of additional distinct goals.
+## Main result (World Cup 2022, held out)
 
-**Design.** Euro 2020 + Euro 2024 (102 matches) were used for development. The whole
-design was frozen in a hash-locked file (`full/development/design_lock.json`, sha256
-`bd5d6f77…`; withheld during blind review, see
-[`results/run_of_record/WITHHELD.md`](results/run_of_record/WITHHELD.md))
-before any World Cup 2022 data (64 matches) were acquired; the primary analysis then ran
-once. Everything after that run is labelled post hoc.
-
-## Headline result (held-out World Cup 2022)
-
-| quantity | value |
+| | |
 |---|---|
-| supported shots / continuations (support keeps 94.9% of eligible shots) | 1,228 / 20,532 |
-| net scoring rate after shots / estimated had they kept the ball | 10.7% / 7.7% |
-| **ATT, percentage points** (raw unadjusted gap: 8.4) | **+3.1** |
-| 95% CI, match clustering (64 clusters; primary) | 0.7 to 5.5 |
-| 95% percentile interval, bootstrap refitting propensity and continuation-outcome models under the frozen design (500 refits; 489 failed at least one diagnostic and were retained per plan) | 0.3 to 5.6 |
-| 95% CI, team / opponent / two-way team-opponent clustering (32 clusters) | 0.4 to 5.7 / −0.3 to 6.4 / −0.2 to 6.4 |
-| outcome models and 5–30 s horizons (point estimates) | 2.8 to 3.9 |
-| DVDS sensitivity: Γ at which the *estimated lower identification bound* reaches zero | about 1.35 |
+| Shots / other decisions | 1,228 / 20,532 |
+| Net scoring rate after shots / estimated had they kept the ball | 10.7% / 7.7% |
+| **Effect of shooting** (raw gap: 8.4) | **+3.1 pp** (95% CI 0.7 to 5.5) |
+| Euro 2020 + 2024 (development) | +1.8 pp (−0.2 to 3.8) |
+| Clustering by opponent | −0.3 to 6.4 |
+| Hidden-confounding tipping point | Γ ≈ 1.35 |
 
-Development cohort (Euro): +1.8 (−0.2 to 3.8). Post-hoc covariate additions (build-up
-context; goalkeeper geometry on the 1,006-shot subset where it is visible) give 3.0 and
-3.6 but fail balance diagnostics. Distance subgroups (within 18 m +5.9, 2.2 to 9.7;
-beyond 18 m −1.3, −3.1 to 0.5) also fail balance criteria and are exploratory leads,
-not findings. The abstract figure is
-[`abstract/fig5_estimate_and_uncertainty.png`](abstract/fig5_estimate_and_uncertainty.png);
-the longer robustness view is [`abstract/fig4_robustness.png`](abstract/fig4_robustness.png).
-
-Γ is a sensitivity-model parameter (how far unmeasured factors may shift the odds of
-shooting); reaching zero at Γ ≈ 1.35 does not show that such a factor exists. The results
-do not support zone-specific shooting advice or claims that teams should shoot more.
-
-Full tables:
-[`results/run_of_record/full/report/`](results/run_of_record/full/report/); post-hoc
-dependence and feature analyses: [`results/posthoc_tier12/`](results/posthoc_tier12/)
-and [`docs/public_360_tier12_results.md`](docs/public_360_tier12_results.md).
-Limits are listed in [`docs/public_360_disclosures.md`](docs/public_360_disclosures.md).
-
-## Data
-
-All data are StatsBomb/Hudl open data. **The raw files are not copied into this
-repository**: the StatsBomb Public Data User Agreement (clause 1.2.1) does not allow
-redistribution. Instead, every file used is pinned to upstream commit
-[`hudl/open-data@4b73468`](https://github.com/hudl/open-data/tree/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb)
-with its URL, size and sha256:
-
-| manifest | cohort | matches | files | bytes |
-|---|---|---|---|---|
-| [`data/development_data_manifest.json`](data/development_data_manifest.json) | Euro 2020, Euro 2024 | 102 | 311 | 1.10 GB |
-| [`data/confirmation_data_manifest.json`](data/confirmation_data_manifest.json) | World Cup 2022 | 64 | 196 | 0.66 GB |
-
-Download and verify (stops on any checksum mismatch):
-
-```bash
-python scripts/fetch_data.py --out data/public_statsbomb_causal
-```
-
-Row-level derived tables (decisions, nuisance predictions) are regenerated by the
-pipeline and are likewise not committed.
+Robustness checks, limits and post-hoc analyses:
+[`docs/public_360_disclosures.md`](docs/public_360_disclosures.md) and
+[`docs/public_360_tier12_results.md`](docs/public_360_tier12_results.md).
+Full report tables: [`results/run_of_record/full/report/`](results/run_of_record/full/report/).
 
 ## Reproduce
 
-Python 3.10, pinned packages in [`requirements.txt`](requirements.txt) plus
-`xgboost==3.2.0`. The run of record used an NVIDIA RTX 4090 (`--device cuda`);
-`--device cpu` is supported but is not guaranteed to reproduce the GPU numbers exactly:
-model selection can differ between devices.
+StatsBomb data cannot be redistributed, so [`data/`](data/) holds manifests pinning every
+file (URL, size, sha256) to
+[`hudl/open-data@4b73468`](https://github.com/hudl/open-data/tree/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb).
 
 ```bash
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt xgboost==3.2.0
 export PYTHONPATH=src
 
-# tests (168)
-python -m unittest discover -s tests/public_causal
-
-# hash-bound validation record required by the development gate
-python scripts/validate_public_causal.py \
-  --output-dir data/public_statsbomb_causal/runs/my-run/manifests
-
-# full study: development -> design lock -> World Cup confirmation -> report
+python scripts/fetch_data.py --out data/public_statsbomb_causal   # download + verify
+python -m unittest discover -s tests/public_causal                 # tests
+python scripts/validate_public_causal.py --output-dir data/public_statsbomb_causal/runs/my-run/manifests
 python scripts/run_public_causal.py --phase full --profile submission --device cuda \
   --study-root data/public_statsbomb_causal --run-id my-run \
   --bootstrap-target 200 --bootstrap-max-attempts 300 \
@@ -101,39 +47,30 @@ python scripts/run_public_causal.py --phase full --profile submission --device c
   --workers 4 --threads 1
 ```
 
-The analysis lives in
-[`results/models/public_statsbomb_causal_study.ipynb`](results/models/public_statsbomb_causal_study.ipynb).
-Its scientific cells hash to core `0959a70c7605b8fe…`, the hash recorded in the run of
-record; the runner refuses a confirmation run whose core hash differs from the
-design lock. Post-hoc analyses: see [`docs/public_360_reproduction.md`](docs/public_360_reproduction.md).
+The run of record used Python 3.10 on an NVIDIA RTX 4090; CPU runs are supported but may
+not match GPU numbers exactly. Run artifacts and post-hoc analyses:
+[`docs/public_360_reproduction.md`](docs/public_360_reproduction.md).
 
-## Repository map
+## Layout
 
-| path | contents |
+| Path | Contents |
 |---|---|
-| `abstract/` | abstract (`abstract.md`, `abstract.tex`), its figure (`fig5_estimate_and_uncertainty.png`, drawn by `fig5.py`), supplementary figures (`fig1`, `fig2`, `fig4`) and `make_figures.py` |
-| `src/PublicCausal/` | data adapter, context features, dependence-robust inference, notebook runtime |
-| `scripts/` | study runner, post-hoc Tier 1/2 analyses, report, data fetcher, GPU benchmarks |
-| `tests/public_causal/` | unit and pipeline tests |
-| `results/models/` | study notebook and pitch image used in case figures |
-| `results/run_of_record/` | report tables and figures of the run of record; configs, design lock, provenance and the integrity manifest are withheld during blind review ([`WITHHELD.md`](results/run_of_record/WITHHELD.md) lists their sha256) |
-| `results/posthoc_tier12/` | post-hoc dependence, null-offset and feature-comparison outputs |
-| `data/` | pinned manifests of the StatsBomb files used |
-| `docs/` | pre-registered plan, Tier 2 prespecification, disclosures, reproduction notes |
+| `abstract/` | abstract (Markdown and LaTeX) and figure scripts |
+| `src/PublicCausal/`, `scripts/` | pipeline, runner, post-hoc analyses |
+| `results/models/` | study notebook |
+| `results/run_of_record/` | report of the run of record |
+| `results/posthoc_tier12/` | post-hoc analyses |
+| `docs/` | prespecified plan, disclosures, reproduction notes |
+| `tests/public_causal/` | tests |
 
-Ten provenance files record absolute paths of the machine the study ran on. They are
-withheld unedited during blind review and will be released after it; their sha256 values
-are committed in [`results/run_of_record/WITHHELD.md`](results/run_of_record/WITHHELD.md).
+Ten provenance files (including the design lock) contain machine paths and are withheld
+during blind review; their sha256 hashes are in
+[`results/run_of_record/WITHHELD.md`](results/run_of_record/WITHHELD.md).
 
-## Data attribution
+## Data and license
 
-<img src="docs/img/statsbomb_logo.png" alt="StatsBomb" width="260">
+<img src="docs/img/statsbomb_logo.png" alt="StatsBomb" width="200">
 
 Data provided by StatsBomb (Hudl) under the
 [StatsBomb Public Data User Agreement](https://github.com/hudl/open-data/blob/master/LICENSE.pdf).
-Analyses and conclusions here are the authors' own and not necessarily those of StatsBomb.
-
-## License
-
-Code: MIT ([`LICENSE`](LICENSE)). The licence covers this repository's code and
-results only, not StatsBomb data.
+Code is MIT licensed ([`LICENSE`](LICENSE)); the licence does not cover StatsBomb data.
