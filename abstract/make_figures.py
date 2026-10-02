@@ -39,9 +39,9 @@ for s in ("top", "right", "left"): ax.spines[s].set_visible(False)
 ax.legend(frameon=False, loc="lower right", fontsize=8.5)
 fig.suptitle("Adjusted effect of shooting vs keeping the ball, overall and by shot distance", x=0.01, ha="left",
              fontsize=11, color=INK)
-fig.text(0.01, 0.015, "Net scoring rate = first goal within 15 s (+1 scored, -1 conceded). Bars: 95% CI, clustered by match. "
-         "Distance groups are prespecified.", fontsize=7.5, color=INK2, va="bottom")
-fig.tight_layout(rect=(0, 0.05, 1, 1)); fig.savefig("fig1_effect_by_distance.png"); plt.close(fig)
+fig.text(0.01, 0.015, "Net scoring rate = first goal within 15 s (+1 scored, -1 conceded). Bars: 95% CI, clustered by match.\n"
+         "Distance subgroups are exploratory: each narrowly misses one balance threshold.", fontsize=7.5, color=INK2, va="bottom")
+fig.tight_layout(rect=(0, 0.09, 1, 1)); fig.savefig("fig1_effect_by_distance.png"); plt.close(fig)
 
 # ---- Figure 2 (descriptive): observed 15-s scoring rate of shots vs model-estimated rate had they continued
 bins = ["<11", "11-14", "14-18", "18-22", "22-26", "26-40"]

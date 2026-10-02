@@ -1,7 +1,7 @@
 # Shoot or Keep the Ball? A Held-Out Causal Audit of Shot Selection
 
 Code and results for our MIT Sloan Sports Analytics Conference 2027 research paper
-submission. Abstract: [`abstract/abstract.md`](abstract/abstract.md).
+submission. Abstract: [`soccer_causal_inference_mit_ssac_27.pdf`](soccer_causal_inference_mit_ssac_27.pdf).
 
 When players shot, did it pay off compared with keeping the ball the way players in the
 same situation typically did? We estimate the effect of shooting on the shots taken (ATT)
@@ -37,7 +37,7 @@ python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt xgboost==3.2.0
 export PYTHONPATH=src
 
-python scripts/fetch_data.py --out data/public_statsbomb_causal   # download + verify
+python scripts/fetch_data.py --out data/public_statsbomb_causal   # optional: inspect the pinned files
 python -m unittest discover -s tests/public_causal                 # tests
 python scripts/validate_public_causal.py --output-dir data/public_statsbomb_causal/runs/my-run/manifests
 python scripts/run_public_causal.py --phase full --profile submission --device cuda \
@@ -47,7 +47,8 @@ python scripts/run_public_causal.py --phase full --profile submission --device c
   --workers 4 --threads 1
 ```
 
-The run of record used Python 3.10 on an NVIDIA RTX 4090; CPU runs are supported but may
+The runner downloads and checksum-verifies the pinned files itself and writes its own
+source manifests, so no manual manifest step is needed. The run of record used Python 3.10 on an NVIDIA RTX 4090; CPU runs are supported but may
 not match GPU numbers exactly. Run artifacts and post-hoc analyses:
 [`docs/public_360_reproduction.md`](docs/public_360_reproduction.md).
 
@@ -55,7 +56,7 @@ not match GPU numbers exactly. Run artifacts and post-hoc analyses:
 
 | Path | Contents |
 |---|---|
-| `abstract/` | abstract (Markdown and LaTeX) and figure scripts |
+| `abstract/` | abstract figures and the scripts that draw them |
 | `src/PublicCausal/`, `scripts/` | pipeline, runner, post-hoc analyses |
 | `results/models/` | study notebook |
 | `results/run_of_record/` | report of the run of record |
