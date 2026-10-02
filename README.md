@@ -21,9 +21,6 @@ The design was fixed on Euro 2020 and 2024 (102 matches) and run once on World C
 | Clustering by opponent | −0.3 to 6.4 |
 | Hidden-confounding tipping point | Γ ≈ 1.35 |
 
-Robustness checks, limits and post-hoc analyses:
-[`docs/public_360_disclosures.md`](docs/public_360_disclosures.md) and
-[`docs/public_360_tier12_results.md`](docs/public_360_tier12_results.md).
 Full report tables: [`results/run_of_record/full/report/`](results/run_of_record/full/report/).
 
 ## Reproduce
@@ -48,25 +45,18 @@ python scripts/run_public_causal.py --phase full --profile submission --device c
 ```
 
 The runner downloads and checksum-verifies the pinned files itself and writes its own
-source manifests, so no manual manifest step is needed. The run of record used Python 3.10 on an NVIDIA RTX 4090; CPU runs are supported but may
-not match GPU numbers exactly. Run artifacts and post-hoc analyses:
-[`docs/public_360_reproduction.md`](docs/public_360_reproduction.md).
+source manifests, so no manual manifest step is needed.
 
 ## Layout
 
 | Path | Contents |
 |---|---|
-| `abstract/` | abstract figures and the scripts that draw them |
 | `src/PublicCausal/`, `scripts/` | pipeline, runner, post-hoc analyses |
 | `results/models/` | study notebook |
 | `results/run_of_record/` | report of the run of record |
 | `results/posthoc_tier12/` | post-hoc analyses |
-| `docs/` | prespecified plan, disclosures, reproduction notes |
+| `docs/img` | StatsBomb logo |
 | `tests/public_causal/` | tests |
-
-Ten provenance files (including the design lock) contain machine paths and are withheld
-during blind review; their sha256 hashes are in
-[`results/run_of_record/WITHHELD.md`](results/run_of_record/WITHHELD.md).
 
 ## Data and license
 
@@ -74,4 +64,4 @@ during blind review; their sha256 hashes are in
 
 Data provided by StatsBomb (Hudl) under the
 [StatsBomb Public Data User Agreement](https://github.com/hudl/open-data/blob/master/LICENSE.pdf).
-Code is MIT licensed ([`LICENSE`](LICENSE)); the licence does not cover StatsBomb data.
+Code is MIT licensed ([`LICENSE`](LICENSE)).

@@ -6,9 +6,7 @@ unchanged. Rows are keyed by (original_match_id, event_id) of the canonical tabl
 Group A is strictly historical: only same-period events ordered before the
 decision group by (time, index) are read, never the decision's own events or
 anything later. Group B reads only the decision's own 360 frame; quantities that
-the frame cannot see are NaN (unknown), never zero. Definitions are prespecified
-in docs/public_360_tier2_prespecification.md.
-
+the frame cannot see are NaN (unknown), never zero.
 Not used by rule (documented here, checked by tests below the marker): StatsBomb
 possession ids/possession team, play pattern, pressure and counterpress flags,
 shot attributes, key-pass links and pass assist annotations, best open teammate.
